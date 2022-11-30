@@ -8,8 +8,6 @@ class MainMenu:
         self.menu()
 
 
-
-
     @staticmethod
     def menu():
         # window
