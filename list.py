@@ -3,7 +3,6 @@ from tkinter import ttk
 import json
 
 
-
 class List:
     def __init__(self):
         self.menu()
@@ -29,12 +28,12 @@ class List:
         button_list.grid(row=1, column=2)
 
         # frame
-        frame1 = tkinter.LabelFrame(master=menu,padx=4, pady=4, font=('Consolas',14))
-        frame1.grid(row=3, column=0,columnspan=3)
+        frame1 = tkinter.LabelFrame(master=menu, padx=4, pady=4, font=('Consolas', 14))
+        frame1.grid(row=3, column=0, columnspan=3)
 
         # table
-        treev=ttk.Treeview(master=frame1,selectmode='browse')
-        treev.grid(row=0, column=0, rowspan=3,columnspan=3)
+        treev = ttk.Treeview(master=frame1, selectmode='browse')
+        treev.grid(row=0, column=0, rowspan=3, columnspan=3)
 
         treev["columns"] = ("1", "2")
 
@@ -50,6 +49,5 @@ class List:
         # respective columns
         treev.heading("1", text="Name")
         treev.heading("2", text="Birth Date")
-
 
         menu.mainloop()

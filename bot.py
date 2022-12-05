@@ -1,16 +1,16 @@
+from threading import *
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.edge.options import Options
 from time import sleep
 import welcomeScreen
 
-
-class Bot:
-
+class Bot():
     @staticmethod
-    def start():
+    def Start():
         browser = webdriver.Edge("msedgedriver.exe")
-        elements = browser.get("https://web.whatsapp.com/")
-        sleep(50)
+        browser.get("https://web.whatsapp.com/")
 
+        welcomeScreen.Welcome()
 
         browser.quit()
