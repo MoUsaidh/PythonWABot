@@ -29,10 +29,7 @@ class Welcome:
         label4.grid(row=4, column=0)
 
         # button
-        button1 = tkinter.Button(master=menu, text="Start", width=8, padx=10, pady=10, command=MainMenu.MainMenu)
+        button1 = tkinter.Button(master=menu, text="Start", width=8, padx=10, pady=10, command=MainMenu.MainMenu.menu)
         button1.grid(row=3, column=0)
 
         menu.mainloop()
-
-
-Welcome()

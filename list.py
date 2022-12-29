@@ -32,22 +32,42 @@ class List:
         frame1.grid(row=3, column=0, columnspan=3)
 
         # table
-        treev = ttk.Treeview(master=frame1, selectmode='browse')
-        treev.grid(row=0, column=0, rowspan=3, columnspan=3)
 
-        treev["columns"] = ("1", "2")
+        with open("birthdays.json") as f:
+            json_data = json.load(f)
+
+
+
+        treev = ttk.Treeview(master=frame1, selectmode='browse')
+
+        treev["columns"] = ("name", "ph", "birth_month", "birth_date")
 
         # Defining heading
         treev['show'] = 'headings'
 
         # Assigning the width and anchor to  the
         # respective columns
-        treev.column("1", width=180, anchor='c')
-        treev.column("2", width=100, anchor='s')
+        treev.column("name", width=180, anchor='c')
+        treev.column("ph", width=100, anchor='s')
+        treev.column("birth_month", width=100, anchor='s')
+        treev.column("birth_date", width=100, anchor='s')
 
         # Assigning the heading names to the
         # respective columns
-        treev.heading("1", text="Name")
-        treev.heading("2", text="Birth Date")
+        treev.heading("#0", text="ID")
+        treev.heading("name", text="Name")
+        treev.heading("ph", text="Phone")
+        treev.heading("birth_month", text="month")
+        treev.heading("birth_date", text="day")
+
+        for i, item in enumerate(json_data):
+            treev.insert("", "end", i, text=i)
+            treev.set(i, column= "name", value=item["name"])
+            treev.set(i, column= "ph", value=item["ph"])
+            treev.set(i, column= "birth_month", value=item["birth_month"])
+            treev.set(i, column= "birth_date", value=item["birth_date"])
+
+        treev.grid(row=0, column=0, rowspan=3, columnspan=3)
+
 
         menu.mainloop()
